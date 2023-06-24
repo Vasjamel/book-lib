@@ -3,6 +3,8 @@ import { startStandaloneServer } from '@apollo/server/standalone';
 
 import 'dotenv/config'
 
+// console.log({ jwt: `Bearer ${jwt.sign({ kek: 'kek', lol: 'lol' }, 'secret')}` })
+
 import resolvers from './schema/resolvers/index.js'
 import typeDefs from './schema/typeDefs/index.js';
 
@@ -13,6 +15,9 @@ const server = new ApolloServer({
 
 const { url } = await startStandaloneServer(server, {
     listen: { port: 4000 },
+    context: async ({ req }) => ({
+        token: req.headers['x-authentication-access']
+    })
 });
 
 console.log(`🚀  Server ready at: ${url}`);
