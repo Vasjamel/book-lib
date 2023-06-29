@@ -1,7 +1,7 @@
 const login = `
   type Login {
     accessToken: String
-    refreshToken: String
+    id: String
   }
 `;
 

@@ -13,9 +13,8 @@ const login = async (parent, { login }, context, info) => {
     if (!isValidPassword) {
         throw new GraphQLError('Email or password is incorrect')
     }
-    const accessToken = jwt.sign({ id: user.id, email: user.email, username: user.username }, process.env.JWT_ACCESS_SECRET, { expiresIn: '15m' })
-    const refreshToken = jwt.sign({ id: user.id }, process.env.JWT_REFRESH_SECRET, { expiresIn: '7d' })
-    return { accessToken, refreshToken }
+    const accessToken = jwt.sign({ id: user.id, email: user.email, username: user.username }, process.env.JWT_ACCESS_SECRET, { expiresIn: '7d' })
+    return { accessToken, id: user.id }
 }
 
 export default login

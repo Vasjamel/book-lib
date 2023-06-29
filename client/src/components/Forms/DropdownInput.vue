@@ -17,7 +17,7 @@ const emit = defineEmits(["input"])
 const inputValue = ref('')
 
 onMounted(() => {
-    inputValue.value = props.defaultValue.value || ''
+    inputValue.value = props.defaultValue || ''
 })
 
 watch(inputValue, (value, oldValue) => {

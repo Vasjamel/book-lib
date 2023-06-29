@@ -1,5 +1,6 @@
 <script setup>
 import TheHeader from './components/Header/TheHeader.vue';
+import 'vue-toast-notification/dist/theme-sugar.css';
 
 </script>
 
@@ -7,7 +8,7 @@ import TheHeader from './components/Header/TheHeader.vue';
   <section class="relative min-h-screen">
     <TheHeader />
 
-    <main class="flex justify-center">
+    <main class="flex justify-center my-8">
       <RouterView class="w-4/5" />
     </main>
 

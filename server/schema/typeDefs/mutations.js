@@ -6,8 +6,9 @@ const mutations = `
     deleteBook (find: BookFilter): Book
     updateBook (find: BookFilter, input: BookInput): Book
     updateAuthor (find: AuthorFilter, input: AuthorInput): Author
-    registerUser (register: UserRegister): User
+    registerUser (register: UserRegister): Login
     loginUser (login: UserLogin): Login
+    deleteUser (find: UserFilter): User
   }
 `
 

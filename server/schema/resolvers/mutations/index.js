@@ -6,6 +6,7 @@ import updateAuthor from './authors/update.js'
 import updateBook from './books/update.js'
 import registerUser from './users/register.js'
 import loginUser from './users/login.js'
+import deleteUser from './users/delete.js'
 
 const Mutation = {
   createBook,
@@ -15,7 +16,8 @@ const Mutation = {
   updateAuthor,
   updateBook,
   registerUser,
-  loginUser
+  loginUser,
+  deleteUser
 }
 
 export default Mutation

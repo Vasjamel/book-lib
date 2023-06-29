@@ -2,8 +2,8 @@ import models from '../../../db/models/index.js'
 import authenticateUser from '../../../auth/index.js'
 
 const booksQuery = async (parent, { find = {} }, context) => {
-  const userData = authenticateUser(context)
-  console.log('userData', userData)
+  authenticateUser(context)
+
   const { Author, Book } = models
 
   const books = await Book.findAll({ where: find, include: Author })

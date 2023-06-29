@@ -1,8 +1,9 @@
 const registerInput = `
   input UserRegister {
-    username: String
     email: String
     password: String
+    confirmPassword: String
+    username: String
   }
 `
 

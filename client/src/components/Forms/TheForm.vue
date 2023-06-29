@@ -1,5 +1,5 @@
 <template>
-    <div class="block" v-for="field in formFields" :key="field.variable">
+    <div v-for="field in formFields" :key="field.variable" @keydown.enter="submitForm">
         <TextInput v-if="getFieldType(field) === 'text'" :type="field.type" :placeholder="field.placeholder"
             :label="field.label" :defaultValue="field.defaultValue" :variable="field.variable" @input="handleInput" />
         <CheckboxInput v-if="getFieldType(field) === 'checkbox'" :type="field.type" :placeholder="field.placeholder"
@@ -8,19 +8,26 @@
             :defaultValue="field.defaultValue" :variable="field.variable" :options="field.options"
             :multiple="!!field.multiple" @input="handleInput" />
     </div>
-    <button class="p-4  border-accent-color border-solid border-4" @click="submitForm">OK</button>
+    <div class=" my-8" v-if="hasSubmitButton">
+        <TheButton type="accent" classes=" text-lg" label="Submit!" @click="submitForm" />
+    </div>
 </template>
 
 <script setup>
 import TextInput from './TextInput.vue'
 import CheckboxInput from './CheckboxInput.vue';
 import DropdownInput from './DropdownInput.vue';
-import { reactive, onMounted, computed } from 'vue';
+import { reactive } from 'vue';
+import TheButton from './TheButton.vue';
 
 const props = defineProps({
     formFields: {
         type: Array,
         required: true
+    },
+    hasSubmitButton: {
+        type: Boolean,
+        default: false,
     }
 })
 
@@ -52,17 +59,6 @@ const handleInput = ({ variable, value }) => {
 const submitForm = () => {
     emit("submit", formValue)
 }
-
-/* 
-    - type
-    - name
-    - label
-    - placeholder
-    - default value
-    ? conditional rendering
-    ? validations and text
-    ? errors indicator
-*/
 
 
 </script>
