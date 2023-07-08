@@ -6,7 +6,6 @@ import App from './App.vue'
 import router from './router'
 
 import './style.css'
-import 'vue-toast-notification/dist/theme-sugar.css';
 
 const app = createApp(App)
 const pinia = createPinia()

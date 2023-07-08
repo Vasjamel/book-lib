@@ -12,7 +12,7 @@ const useAuthStore = defineStore('auth', () => {
   const currentUser = ref(null)
 
   async function register(credentials) {
-    const { registerUser } = await LIB_API.getData({
+    const { registerUser } = await LIB_API.runOperation({
       query: 'mutation RegisterUser($register: UserRegister) { registerUser (register: $register) { accessToken id }}',
       variables: { register: credentials }
     })
@@ -27,12 +27,12 @@ const useAuthStore = defineStore('auth', () => {
   async function getUser(id) {
     const query = 'query Users ($find: UserFilter) { users (find: $find) { id username email } }'
     const variables = { find: { id } }
-    const { users } = await LIB_API.getData({ query, variables })
+    const { users } = await LIB_API.runOperation({ query, variables })
     currentUser.value = users[0]
   }
 
   async function login(credentials) {
-    const { loginUser } = await LIB_API.getData({
+    const { loginUser } = await LIB_API.runOperation({
       query: 'mutation LoginUser($login: UserLogin) { loginUser (login: $login) { accessToken id }}',
       variables: { login: credentials }
     })

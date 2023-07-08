@@ -14,10 +14,10 @@
 </template>
 
 <script setup>
+import { reactive } from 'vue';
 import TextInput from './TextInput.vue'
 import CheckboxInput from './CheckboxInput.vue';
 import DropdownInput from './DropdownInput.vue';
-import { reactive } from 'vue';
 import TheButton from './TheButton.vue';
 
 const props = defineProps({

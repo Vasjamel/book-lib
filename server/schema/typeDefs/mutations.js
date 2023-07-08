@@ -4,7 +4,7 @@ const mutations = `
     createAuthor (input: AuthorInput): Author
     deleteAuthor (find: AuthorFilter): Author
     deleteBook (find: BookFilter): Book
-    updateBook (find: BookFilter, input: BookInput): Book
+    updateBook (find: BookFilter, input: BookUpdate): Book
     updateAuthor (find: AuthorFilter, input: AuthorInput): Author
     registerUser (register: UserRegister): Login
     loginUser (login: UserLogin): Login

@@ -23,7 +23,6 @@
 </template>
 
 <script setup>
-import axios from '../axios/index.js';
 import { ref, onMounted } from 'vue'
 import { useRoute, useRouter } from 'vue-router';
 import useBookStore from '../stores/books.js';

@@ -16,8 +16,15 @@ const props = defineProps(["type", "placeholder", "label", "defaultValue", "opti
 const emit = defineEmits(["input"])
 const inputValue = ref('')
 
+const getInitialValue = (value) => {
+  if (Array.isArray(value)) return getInitialValue(value[0])
+  if (typeof value === 'object') return value
+  return { label: value, value }
+}
+
 onMounted(() => {
-    inputValue.value = props.defaultValue || ''
+  const initialValue = getInitialValue(props.defaultValue)
+  inputValue.value = initialValue
 })
 
 watch(inputValue, (value, oldValue) => {

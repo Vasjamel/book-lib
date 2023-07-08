@@ -3,7 +3,7 @@ import axios from "../axios/index.js";
 import handleErrors from "../utils/handleError.js";
 
 class LIB_API {
-    async getData({ query = '', variables }) {
+    async runOperation({ query = '', variables }) {
         const response = await axios({
             data: {
                 query,

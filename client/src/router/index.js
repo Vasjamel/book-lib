@@ -8,6 +8,7 @@ import CreateBook from '../components/CreateBook.vue'
 import UpdateBook from '../components/UpdateBook.vue'
 import LoginForm from '../components/Auth/LoginForm.vue'
 import RegisterForm from '../components/Auth/RegisterForm.vue'
+import CreateAuthor from '../components/CreateAuthor.vue'
 
 
 const router = createRouter({
@@ -33,6 +34,10 @@ const router = createRouter({
     {
       path: '/register',
       component: RegisterForm
+    },
+    {
+      path: '/create-author',
+      component: CreateAuthor
     }
   ]
 })

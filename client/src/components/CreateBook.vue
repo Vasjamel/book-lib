@@ -1,6 +1,8 @@
 <template>
     <div class="flex flex-col align-center justify-center items-center">
         <TheForm :form-fields="formFieldsLocal" has-submit-button @submit="createBook" @input="updateBookDraft" />
+            <TheButton classes=" text-lg" label="Create new author" :outline="false" @click="router.push('/create-author')" />
+
         <div v-if="bookDraft">
             <LibCard :book="bookDraft" />
         </div>
@@ -11,9 +13,12 @@
 import LibCard from './LibCard.vue';
 import TheForm from './Forms/TheForm.vue';
 import { ref, onMounted, computed } from 'vue'
+import { useRouter } from 'vue-router';
 import useBookStore from '../stores/books.js';
+import TheButton from './Forms/TheButton.vue';
 
 const bookStore = useBookStore()
+const router = useRouter()
 
 const authors = ref([])
 const genres = ref([])
